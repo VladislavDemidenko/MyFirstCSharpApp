@@ -2,27 +2,33 @@
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
-        // 1. Запрашиваем имя
-        Console.Write("Введите ваше имя: ");
-        string name = Console.ReadLine(); // Читаем введёную строку
+        int[] numbers = new int[5];
+        Console.WriteLine("Введите 5 чисел:");
 
-        // 2. Запрашиваем возраст
-        Console.Write("Введите ваш возраст:");
-        int age = Convert.ToInt32(Console.ReadLine()); // Читаем строку и преобразуем в число
-
-        // 3. Выводим приветствие
-        Console.WriteLine($"Привет, {name}!");
-
-        // 4. Проверяем совершеннолетие и выводим результат
-        if (age >= 18)
+        // Запрос чисел
+        for (int i = 0; i < 5; i++)
         {
-            Console.WriteLine("Вы совершеннолетний.");
+            Console.Write($"Число {i+1}: ");
+            numbers[i] = Convert.ToInt32(Console.ReadLine());
         }
-        else
+
+        // Вычисление суммы через метод
+        int sum = CalculateSum(numbers);
+        
+        Console.WriteLine($"\nВведенные числа: {string.Join(", ", numbers)}");
+        Console.WriteLine($"Сумма чисел: {sum}");
+    }
+
+    // Метод для вычисления суммы
+    static int CalculateSum(int[] array)
+    {
+        int total = 0;
+        foreach (int num in array)
         {
-            Console.WriteLine("Вы несовершеннолетний.");
+            total += num;
         }
+        return total;
     }
 }
