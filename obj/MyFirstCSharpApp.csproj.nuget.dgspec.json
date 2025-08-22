@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\CSharp\\MyFirstCSharpApp\\MyFirstCSharpApp.csproj": {}
+    "C:\\CSharp\\MyFirstCSharpApp\\MyFirstCSharpApp.csproj": {}
   },
   "projects": {
-    "c:\\CSharp\\MyFirstCSharpApp\\MyFirstCSharpApp.csproj": {
+    "C:\\CSharp\\MyFirstCSharpApp\\MyFirstCSharpApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\CSharp\\MyFirstCSharpApp\\MyFirstCSharpApp.csproj",
+        "projectUniqueName": "C:\\CSharp\\MyFirstCSharpApp\\MyFirstCSharpApp.csproj",
         "projectName": "MyFirstCSharpApp",
-        "projectPath": "c:\\CSharp\\MyFirstCSharpApp\\MyFirstCSharpApp.csproj",
+        "projectPath": "C:\\CSharp\\MyFirstCSharpApp\\MyFirstCSharpApp.csproj",
         "packagesPath": "C:\\Users\\arece\\.nuget\\packages\\",
-        "outputPath": "c:\\CSharp\\MyFirstCSharpApp\\obj\\",
+        "outputPath": "C:\\CSharp\\MyFirstCSharpApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\arece\\AppData\\Roaming\\NuGet\\NuGet.Config"
