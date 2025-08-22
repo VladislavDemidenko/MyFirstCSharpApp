@@ -1,34 +1,11 @@
-﻿using System;
-
-class Program
+﻿namespace MyFirstCSharpApp
 {
-    static void Main()
+    class Program
     {
-        int[] numbers = new int[5];
-        Console.WriteLine("Введите 5 чисел:");
-
-        // Запрос чисел
-        for (int i = 0; i < 5; i++)
+        private const int BaseNumber = 5;
+        static void Main()
         {
-            Console.Write($"Число {i+1}: ");
-            numbers[i] = Convert.ToInt32(Console.ReadLine());
+            User.UserCalculate(BaseNumber);
         }
-
-        // Вычисление суммы через метод
-        int sum = CalculateSum(numbers);
-        
-        Console.WriteLine($"\nВведенные числа: {string.Join(", ", numbers)}");
-        Console.WriteLine($"Сумма чисел: {sum}");
-    }
-
-    // Метод для вычисления суммы
-    static int CalculateSum(int[] array)
-    {
-        int total = 0;
-        foreach (int num in array)
-        {
-            total += num;
-        }
-        return total;
-    }
+    }   
 }
