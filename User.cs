@@ -1,10 +1,12 @@
 namespace MyFirstCSharpApp
 {
-    static class User
+    class User
     {
-        public static void UserCalculate(int BaseNumber)
+        readonly Random random = new();
+        public int rnd;
+        private readonly List<int> numbers = [];
+        public void UserManagement(int BaseNumber)
         {
-            List<int> numbers = [];
             Console.WriteLine($"Введите {BaseNumber} чисел:");
 
             // Запрос чисел
@@ -13,6 +15,7 @@ namespace MyFirstCSharpApp
                 Console.Write($"Число {i + 1}: ");
                 try
                 {
+                    //numbers.Add(random.Next(1, 1001));
                     numbers.Add(Convert.ToInt32(Console.ReadLine()));
                 }
                 catch (Exception)
@@ -22,21 +25,73 @@ namespace MyFirstCSharpApp
                 }
             }
 
-            // Вычисление суммы через метод
-            int sum = CalculateSum(numbers);
+            PrintInfo();
+        }
+
+        // Вычисление суммы через метод
+        public virtual void PrintInfo()
+        {
+            int sum = 0;
+            rnd = random.Next(1, 4);
+            switch (rnd)
+            {
+                case 1:
+                    {
+                        sum = CalculateSum();
+                    }
+                    break;
+                case 2:
+                    {
+                        sum = CalculateMultiplication();
+                    }
+                    break;
+
+                case 3:
+                    {
+                        sum = CalculateAverage();
+                    }
+                    break;
+                default:
+                    break;
+            }
 
             Console.WriteLine($"\nВведенные числа: {string.Join(", ", numbers)}");
-            Console.WriteLine($"Сумма чисел: {sum}");
+            if (sum >= 0)
+                Console.WriteLine($"Итого: {sum}");
+            else if (sum < 0)
+                Console.WriteLine("Сумма слишком велика");
         }
         // Метод для вычисления суммы
-        private static int CalculateSum(List<int> list)
+        private int CalculateSum()
         {
             int total = 0;
-            foreach (int num in list)
+            foreach (int num in numbers)
             {
                 total += num;
             }
             return total;
+        }
+        // Метод для вычисления суммы
+        private int CalculateMultiplication()
+        {
+            int total = 0 + numbers[0];
+            bool skip = true;
+            foreach (int num in numbers)
+            {
+                if (skip)
+                {
+                    skip = false;
+                    continue;
+                }
+                    
+                total *= num;
+            }
+            return total;
+        }
+        // Метод для вычисления суммы
+        private int CalculateAverage()
+        {
+            return (int)numbers.Average();
         }
     }   
 }
