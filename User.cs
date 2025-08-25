@@ -38,7 +38,7 @@ namespace MyFirstCSharpApp
                 }
                 else
                 {
-                    Console.WriteLine("Введите любой из перечисленного символа. ( * / x )");
+                    Console.WriteLine("Введите любой из перечисленного символа. ( * + x )");
                 }
             }
         }

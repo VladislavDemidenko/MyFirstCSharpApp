@@ -1,4 +1,6 @@
-﻿namespace MyFirstCSharpApp
+﻿using System.Runtime.CompilerServices;
+
+namespace MyFirstCSharpApp
 {
     class Program
     {
@@ -11,7 +13,9 @@
                 try
                 {
                     BaseNumber = int.Parse(Console.ReadLine()?.ToString() ?? "NULL");
-                    break;
+                    if (BaseNumber >= 2)
+                        break;
+                    Console.WriteLine("Попробуйте ещё раз");
                 }
                 catch (Exception)
                 {
