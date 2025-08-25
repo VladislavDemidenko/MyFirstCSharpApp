@@ -1,10 +1,10 @@
+using System.Text;
+
 namespace MyFirstCSharpApp
 {
-    class User
+    abstract class User
     {
-        readonly Random random = new();
-        public int rnd;
-        private readonly List<int> numbers = [];
+        public readonly List<int> numbers = [];
         public void UserManagement(int BaseNumber)
         {
             Console.WriteLine($"Введите {BaseNumber} чисел:");
@@ -20,78 +20,30 @@ namespace MyFirstCSharpApp
                 }
                 catch (Exception)
                 {
-                    Console.WriteLine($"Ошибка, вы ввели не целое число. Введите ещё раз.");
+                    Console.WriteLine("Ошибка, вы ввели не целое число. Введите ещё раз.");
                     i--;
                 }
             }
 
-            PrintInfo();
+            Console.WriteLine("Введите тип операции ( * + x ):");
+            bool operationsWhile = true;
+            while (operationsWhile)
+            {
+                string operations = Console.ReadLine()?.ToString() ?? "NULL";
+
+                if (operations == "*" || operations == "+" || operations == "x")
+                {
+                    PrintInfo(operations);
+                    operationsWhile = false;
+                }
+                else
+                {
+                    Console.WriteLine("Введите любой из перечисленного символа. ( * / x )");
+                }
+            }
         }
 
         // Вычисление суммы через метод
-        public virtual void PrintInfo()
-        {
-            int sum = 0;
-            rnd = random.Next(1, 4);
-            switch (rnd)
-            {
-                case 1:
-                    {
-                        sum = CalculateSum();
-                    }
-                    break;
-                case 2:
-                    {
-                        sum = CalculateMultiplication();
-                    }
-                    break;
-
-                case 3:
-                    {
-                        sum = CalculateAverage();
-                    }
-                    break;
-                default:
-                    break;
-            }
-
-            Console.WriteLine($"\nВведенные числа: {string.Join(", ", numbers)}");
-            if (sum >= 0)
-                Console.WriteLine($"Итого: {sum}");
-            else if (sum < 0)
-                Console.WriteLine("Сумма слишком велика");
-        }
-        // Метод для вычисления суммы
-        private int CalculateSum()
-        {
-            int total = 0;
-            foreach (int num in numbers)
-            {
-                total += num;
-            }
-            return total;
-        }
-        // Метод для вычисления суммы
-        private int CalculateMultiplication()
-        {
-            int total = 0 + numbers[0];
-            bool skip = true;
-            foreach (int num in numbers)
-            {
-                if (skip)
-                {
-                    skip = false;
-                    continue;
-                }
-                    
-                total *= num;
-            }
-            return total;
-        }
-        // Метод для вычисления суммы
-        private int CalculateAverage()
-        {
-            return (int)numbers.Average();
-        }
-    }   
+        public abstract void PrintInfo(string operations);
+    }
 }
